@@ -8,16 +8,17 @@ let config = {
         publicPath: 'dist/'
     },
     devServer: {
-        contentBase:   "./src",
+        contentBase: path.resolve(__dirname, './src'),
         overlay: true
     },
 
     module: {
         rules: [
-          { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
-          { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']}
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+            { test: /\.(jpe?g|png|gif|svg)$/, loader: 'url-loader' }
         ]
-      }
+    }
 }
 
 module.exports = (env, options) => {
